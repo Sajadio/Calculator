@@ -18,7 +18,6 @@ class CalculatorActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCalculatorBinding
     private var inputValue: String = ""
 
-
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,82 +69,100 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun onRadioBinaryButtonClicked(radioButton: RadioButton?) {
-        if (isBinaryNumber(inputValue)) {
-            binding.resultView.text = when (radioButton?.id) {
-                R.id.binary_to_octal -> {
-                    handelSelectedRadioButton(radioButton)
-                    toOctalString(parseInt(inputValue, 2))
-                }
-                R.id.binary_to_decimal -> {
-                    handelSelectedRadioButton(radioButton)
-                    parseInt(inputValue, 2).toString()
-                }
-                else -> {
-                    radioButton?.let { handelSelectedRadioButton(it) }
-                    inputValue.toInt(2).toString(16)
-                } // binary to hexa-decimal
+        try {
+            if (isBinaryNumber(inputValue)) {
+                binding.resultView.text = when (radioButton?.id) {
+                    R.id.binary_to_octal -> {
+                        handelSelectedRadioButton(radioButton)
+                        toOctalString(parseInt(inputValue, 2))
+                    }
+                    R.id.binary_to_decimal -> {
+                        handelSelectedRadioButton(radioButton)
+                        parseInt(inputValue, 2).toString()
+                    }
+                    else -> {
+                        radioButton?.let { handelSelectedRadioButton(it) }
+                        inputValue.toInt(2).toString(16)
+                    } // binary to hexa-decimal
 
+                }
             }
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun onRadioOctalButtonClicked(radioButton: RadioButton?) {
+        try {
 
-        if (isOctalNumber(inputValue)) {
+            if (isOctalNumber(inputValue)) {
 
-            binding.resultView.text = when (radioButton?.id) {
-                R.id.octal_to_binary -> {
-                    handelSelectedRadioButton(radioButton)
-                    inputValue.toInt(8).toString(2)
+                binding.resultView.text = when (radioButton?.id) {
+                    R.id.octal_to_binary -> {
+                        handelSelectedRadioButton(radioButton)
+                        inputValue.toInt(8).toString(2)
+                    }
+                    R.id.octal_to_decimal -> {
+                        handelSelectedRadioButton(radioButton)
+                        inputValue.toInt(8).toString()
+                    }
+                    else -> {
+                        radioButton?.let { handelSelectedRadioButton(it) }
+                        inputValue.toBigInteger(8).toString(16)
+                    } // octal to hexa-decimal
                 }
-                R.id.octal_to_decimal -> {
-                    handelSelectedRadioButton(radioButton)
-                    inputValue.toInt(8).toString()
-                }
-                else -> {
-                    radioButton?.let { handelSelectedRadioButton(it) }
-                    inputValue.toBigInteger(8).toString(16)
-                } // octal to hexa-decimal
             }
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun onRadioDecimalButtonClicked(radioButton: RadioButton?) {
+        try {
 
-        if (isDecimalNumber(inputValue)) {
-            binding.resultView.text = when (radioButton?.id) {
-                R.id.decimal_to_binary -> {
-                    handelSelectedRadioButton(radioButton)
-                    inputValue.toInt().toString(2)
+
+            if (isDecimalNumber(inputValue)) {
+                binding.resultView.text = when (radioButton?.id) {
+                    R.id.decimal_to_binary -> {
+                        handelSelectedRadioButton(radioButton)
+                        inputValue.toInt().toString(2)
+                    }
+                    R.id.decimal_to_octal -> {
+                        handelSelectedRadioButton(radioButton)
+                        inputValue.toInt().toString(8)
+                    }
+                    else -> {
+                        radioButton?.let { handelSelectedRadioButton(it) }
+                        inputValue.toInt().toString(16)
+                    } // decimal to hexa-decimal
                 }
-                R.id.decimal_to_octal -> {
-                    handelSelectedRadioButton(radioButton)
-                    inputValue.toInt().toString(8)
-                }
-                else -> {
-                    radioButton?.let { handelSelectedRadioButton(it) }
-                    inputValue.toInt().toString(16)
-                } // decimal to hexa-decimal
             }
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun onRadioHexaDecimalButtonClicked(radioButton: RadioButton?) {
-        if (isHexaDecimalNumber(inputValue)) {
-            binding.resultView.text = when (radioButton?.id) {
-                R.id.hexa_decimal_to_binary -> {
-                    handelSelectedRadioButton(radioButton)
-                    inputValue.toInt(16).toString(2)
+        try {
+
+            if (isHexaDecimalNumber(inputValue)) {
+                binding.resultView.text = when (radioButton?.id) {
+                    R.id.hexa_decimal_to_binary -> {
+                        handelSelectedRadioButton(radioButton)
+                        inputValue.toInt(16).toString(2)
+                    }
+                    R.id.hexa_decimal_to_octal -> {
+                        handelSelectedRadioButton(radioButton)
+                        inputValue.toInt(16).toString(8)
+                    }
+                    else -> {
+                        radioButton?.let { handelSelectedRadioButton(it) }
+                        inputValue.toInt(16).toString()
+                    } // hexa-decimal to decimal
                 }
-                R.id.hexa_decimal_to_octal -> {
-                    handelSelectedRadioButton(radioButton)
-                    inputValue.toInt(16).toString(8)
-                }
-                else -> {
-                    radioButton?.let { handelSelectedRadioButton(it) }
-                    inputValue.toInt(16).toString()
-                } // hexa-decimal to decimal
             }
+        } catch (e: Exception) {
+            Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
         }
     }
 

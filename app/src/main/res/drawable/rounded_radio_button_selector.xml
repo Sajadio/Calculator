@@ -3,10 +3,7 @@
     <item android:state_checked="true">
         <shape android:shape="rectangle">
             <solid android:color="@color/rounded_edittext_background" />
-            <corners android:radius="16dp" />
-            <padding android:bottom="8dp"
-                android:left="8dp"
-                android:right="8dp" android:top="8dp" />
+            <corners android:radius="8dp" />
         </shape>
     </item>
 

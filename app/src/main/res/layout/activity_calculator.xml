@@ -27,7 +27,7 @@
         android:id="@+id/resultView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
+        android:layout_marginHorizontal="16dp"
         android:drawablePadding="4dp"
         android:ellipsize="end"
         android:gravity="center|start"
@@ -61,11 +61,10 @@
         android:layout_marginTop="16dp"
         android:autofillHints="no"
         android:background="@drawable/rounded_of_input_field"
-        android:drawablePadding="4dp"
-        android:drawableTint="#3E3E3E"
         android:fontFamily="@font/poppins"
         android:gravity="center|start"
         android:hint="@string/hint_input"
+        android:inputType="text"
         android:padding="16dp"
         android:textColor="@color/primary_text_color"
         android:textColorHint="@color/hint_color"
@@ -73,8 +72,7 @@
         app:layout_constraintEnd_toEndOf="@+id/resultView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/copyValue"
-        app:layout_constraintTop_toBottomOf="@+id/copyValue"
-        android:inputType="text" />
+        app:layout_constraintTop_toBottomOf="@+id/copyValue" />
 
     <ImageButton
         android:id="@+id/clear_text"
@@ -89,9 +87,10 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/input"
         app:layout_constraintStart_toStartOf="@+id/input"
         app:layout_constraintTop_toBottomOf="@+id/input">
@@ -101,23 +100,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="16dp"
             android:weightSum="3">
 
             <RadioButton
                 android:id="@+id/binary_to_octal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/binary_to_octal"
                 android:textColor="#FF4081" />
 
             <RadioButton
                 android:id="@+id/binary_to_decimal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/binary_to_decimal"
                 android:textColor="#FF4081" />
 
             <RadioButton
                 android:id="@+id/binary_to_hexa_decimal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/binary_to_hexa_decimal"
                 android:textColor="#FF4081" />
 
@@ -127,25 +127,25 @@
             android:id="@+id/radioGroupOctal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:weightSum="3">
 
             <RadioButton
                 android:id="@+id/octal_to_binary"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/octal_to_binary"
                 android:textColor="#FF5252" />
 
             <RadioButton
                 android:id="@+id/octal_to_decimal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/octal_to_decimal"
                 android:textColor="#FF5252" />
 
             <RadioButton
                 android:id="@+id/octal_to_hexa_decimal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/octal_to_hexa_decimal"
                 android:textColor="#FF5252" />
 
@@ -155,25 +155,25 @@
             android:id="@+id/radioGroupDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:weightSum="3">
 
             <RadioButton
                 android:id="@+id/decimal_to_binary"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/decimal_to_binary"
                 android:textColor="#FFAB40" />
 
             <RadioButton
                 android:id="@+id/decimal_to_octal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/decimal_to_octal"
                 android:textColor="#FFAB40" />
 
             <RadioButton
                 android:id="@+id/decimal_to_hexa_decimal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/decimal_to_hexa_decimal"
                 android:textColor="#FFAB40" />
 
@@ -183,25 +183,25 @@
             android:id="@+id/radioGroupHexaDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:weightSum="3">
 
             <RadioButton
                 android:id="@+id/hexa_decimal_to_binary"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/hexa_decimal_to_binary"
                 android:textColor="#FFD740" />
 
             <RadioButton
                 android:id="@+id/hexa_decimal_to_octal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/hexa_decimal_to_octal"
                 android:textColor="#FFD740" />
 
             <RadioButton
                 android:id="@+id/hexa_decimal_to_decimal"
-                style="@style/radioButton"
+                style="@style/RadioButton"
                 android:text="@string/hexa_decimal_to_decimal"
                 android:textColor="#FFD740" />
 
