@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".CalculatorActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_bar_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/resultView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:drawablePadding="4dp"
+        android:ellipsize="end"
+        android:gravity="center|start"
+        android:hint="@string/hint_result"
+        android:lines="1"
+        android:textColor="@color/primary_text_color"
+        android:textColorHint="@color/hint_color"
+        android:textSize="@dimen/size_text_result"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/copyValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/copyValue"
+        app:layout_constraintTop_toTopOf="@+id/copyValue" />
+
+    <ImageButton
+        android:id="@+id/copyValue"
+        style="@style/ButtonStyle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_copy_btn"
+        android:src="@drawable/outline_file_copy_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:tint="@color/hint_color"
+        tools:ignore="ContentDescription" />
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints="no"
+        android:background="@drawable/rounded_of_input_field"
+        android:drawablePadding="4dp"
+        android:drawableTint="#3E3E3E"
+        android:fontFamily="@font/poppins"
+        android:gravity="center|start"
+        android:hint="@string/hint_input"
+        android:padding="16dp"
+        android:textColor="@color/primary_text_color"
+        android:textColorHint="@color/hint_color"
+        android:textSize="@dimen/size_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/resultView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/copyValue"
+        app:layout_constraintTop_toBottomOf="@+id/copyValue"
+        android:inputType="text" />
+
+    <ImageButton
+        android:id="@+id/clear_text"
+        style="@style/ButtonStyle"
+        android:src="@drawable/round_close_24"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/input"
+        app:layout_constraintEnd_toEndOf="@+id/resultView"
+        app:layout_constraintTop_toTopOf="@+id/input"
+        app:tint="@drawable/rounded_clear_btn"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/input"
+        app:layout_constraintStart_toStartOf="@+id/input"
+        app:layout_constraintTop_toBottomOf="@+id/input">
+
+        <RadioGroup
+            android:id="@+id/radioGroupBinary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RadioButton
+                android:id="@+id/binary_to_octal"
+                style="@style/radioButton"
+                android:text="@string/binary_to_octal"
+                android:textColor="#FF4081" />
+
+            <RadioButton
+                android:id="@+id/binary_to_decimal"
+                style="@style/radioButton"
+                android:text="@string/binary_to_decimal"
+                android:textColor="#FF4081" />
+
+            <RadioButton
+                android:id="@+id/binary_to_hexa_decimal"
+                style="@style/radioButton"
+                android:text="@string/binary_to_hexa_decimal"
+                android:textColor="#FF4081" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupOctal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RadioButton
+                android:id="@+id/octal_to_binary"
+                style="@style/radioButton"
+                android:text="@string/octal_to_binary"
+                android:textColor="#FF5252" />
+
+            <RadioButton
+                android:id="@+id/octal_to_decimal"
+                style="@style/radioButton"
+                android:text="@string/octal_to_decimal"
+                android:textColor="#FF5252" />
+
+            <RadioButton
+                android:id="@+id/octal_to_hexa_decimal"
+                style="@style/radioButton"
+                android:text="@string/octal_to_hexa_decimal"
+                android:textColor="#FF5252" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RadioButton
+                android:id="@+id/decimal_to_binary"
+                style="@style/radioButton"
+                android:text="@string/decimal_to_binary"
+                android:textColor="#FFAB40" />
+
+            <RadioButton
+                android:id="@+id/decimal_to_octal"
+                style="@style/radioButton"
+                android:text="@string/decimal_to_octal"
+                android:textColor="#FFAB40" />
+
+            <RadioButton
+                android:id="@+id/decimal_to_hexa_decimal"
+                style="@style/radioButton"
+                android:text="@string/decimal_to_hexa_decimal"
+                android:textColor="#FFAB40" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroupHexaDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RadioButton
+                android:id="@+id/hexa_decimal_to_binary"
+                style="@style/radioButton"
+                android:text="@string/hexa_decimal_to_binary"
+                android:textColor="#FFD740" />
+
+            <RadioButton
+                android:id="@+id/hexa_decimal_to_octal"
+                style="@style/radioButton"
+                android:text="@string/hexa_decimal_to_octal"
+                android:textColor="#FFD740" />
+
+            <RadioButton
+                android:id="@+id/hexa_decimal_to_decimal"
+                style="@style/radioButton"
+                android:text="@string/hexa_decimal_to_decimal"
+                android:textColor="#FFD740" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

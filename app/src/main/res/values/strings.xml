@@ -2,9 +2,21 @@
     <string name="app_name">Calculator</string>
     <string name="hint_input">Enter the value that you want convert it</string>
     <string name="hint_result">0</string>
-    <string name="binary">Binary</string>
-    <string name="octal">Octal</string>
-    <string name="decimal">Decimal</string>
-    <string name="hexa_decimal">Hexa-Decimal</string>
-    <string name="deselect">Deselect</string>
+
+    <string name="binary_to_octal">Binary To Octal</string>
+    <string name="binary_to_decimal">Binary To Decimal</string>
+    <string name="binary_to_hexa_decimal">Binary To H-Decimal</string>
+
+    <string name="octal_to_binary">Octal To Binary</string>
+    <string name="octal_to_decimal">Octal To Decimal</string>
+    <string name="octal_to_hexa_decimal">Octal To H-Decimal</string>
+
+    <string name="decimal_to_binary">Decimal To Binary</string>
+    <string name="decimal_to_octal">Decimal To Octal</string>
+    <string name="decimal_to_hexa_decimal">Decimal To H-Decimal</string>
+
+    <string name="hexa_decimal_to_binary">H-Decimal To Binary</string>
+    <string name="hexa_decimal_to_octal">H-Decimal To Octal</string>
+    <string name="hexa_decimal_to_decimal">H-Decimal To Decimal</string>
+
 </resources>

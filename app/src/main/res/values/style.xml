@@ -5,8 +5,19 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textColor">@color/main_font_color</item>
+        <item name="android:layout_marginHorizontal">8dp</item>
+        <item name="android:padding">8dp</item>
         <item name="android:textSize">14sp</item>
-
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
     </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
 </resources>
