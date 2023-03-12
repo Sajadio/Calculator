@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="hint_input">أدخل القيمة التي تريد تحويلها</string>
+    <string name="hint_result">0</string>
+
+    <string name="binary">الثنائية</string>
+    <string name="octal">ثماني</string>
+    <string name="decimal">عدد عشري</string>
+    <string name="hexa_decimal">السداسي عشري</string>
+    <string name="convert_from">من</string>
+    <string name="convert_to">الى</string>
+    <string name="title_select_chios">تأكد من تحديد الخيار الذي تريد التحويل اليه</string>
+    <string name="title_valid_value">الرجاء إدخال الرقم أولا</string>
+    <string name="text_copied">تم نسخ النص</string>
+    <string name="error_message">معذرةً ، لا يمكن تحويل قيمة تحتوي على حرف إلى</string>
+    </resources>

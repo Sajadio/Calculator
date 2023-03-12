@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+    <style name="NormalRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_marginHorizontal">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
         <item name="android:padding">8dp</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:background">@drawable/rounded_radio_button_selector</item>
         <item name="android:button">@null</item>
         <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_convert_from</item>
+    </style>
+
+    <style name="NormalRadioButton.ConvertTo">
+        <item name="android:textColor">@color/color_convert_to</item>
+    </style>
+
+
+    <style name="NormalTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:gravity">center|start</item>
+        <item name="android:textColor">@color/primary_text_color</item>
     </style>
 
     <style name="ButtonStyle" parent="Widget.AppCompat.ImageButton">

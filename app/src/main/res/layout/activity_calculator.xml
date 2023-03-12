@@ -65,12 +65,13 @@
         android:gravity="center|start"
         android:hint="@string/hint_input"
         android:inputType="text"
-        android:padding="16dp"
+        android:paddingVertical="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="64dp"
         android:textColor="@color/primary_text_color"
         android:textColorHint="@color/hint_color"
         android:textSize="@dimen/size_edit_text"
         app:layout_constraintEnd_toEndOf="@+id/resultView"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/copyValue"
         app:layout_constraintTop_toBottomOf="@+id/copyValue" />
 
@@ -80,132 +81,91 @@
         android:src="@drawable/round_close_24"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/input"
-        app:layout_constraintEnd_toEndOf="@+id/resultView"
+        app:layout_constraintEnd_toEndOf="@+id/input"
         app:layout_constraintTop_toTopOf="@+id/input"
         app:tint="@drawable/rounded_clear_btn"
         tools:ignore="ContentDescription" />
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/input"
         app:layout_constraintStart_toStartOf="@+id/input"
-        app:layout_constraintTop_toBottomOf="@+id/input">
+        app:layout_constraintTop_toBottomOf="@+id/input"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            style="@style/NormalTextView"
+            android:text="@string/convert_from" />
 
         <RadioGroup
-            android:id="@+id/radioGroupBinary"
+            android:id="@+id/fromRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:weightSum="3">
+            android:weightSum="4">
 
             <RadioButton
-                android:id="@+id/binary_to_octal"
-                style="@style/RadioButton"
-                android:text="@string/binary_to_octal"
-                android:textColor="#FF4081" />
+                android:id="@+id/fromBinary"
+                style="@style/NormalRadioButton"
+                android:text="@string/binary" />
 
             <RadioButton
-                android:id="@+id/binary_to_decimal"
-                style="@style/RadioButton"
-                android:text="@string/binary_to_decimal"
-                android:textColor="#FF4081" />
+                android:id="@+id/fromOctal"
+                style="@style/NormalRadioButton"
+                android:text="@string/octal" />
 
             <RadioButton
-                android:id="@+id/binary_to_hexa_decimal"
-                style="@style/RadioButton"
-                android:text="@string/binary_to_hexa_decimal"
-                android:textColor="#FF4081" />
+                android:id="@+id/fromDecimal"
+                style="@style/NormalRadioButton"
+                android:text="@string/decimal" />
+
+            <RadioButton
+                android:id="@+id/fromHexaDecimal"
+                style="@style/NormalRadioButton"
+                android:text="@string/hexa_decimal" />
 
         </RadioGroup>
 
+        <TextView
+            style="@style/NormalTextView"
+            android:layout_marginTop="16dp"
+            android:text="@string/convert_to" />
+
         <RadioGroup
-            android:id="@+id/radioGroupOctal"
+            android:id="@+id/toRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="4">
 
             <RadioButton
-                android:id="@+id/octal_to_binary"
-                style="@style/RadioButton"
-                android:text="@string/octal_to_binary"
-                android:textColor="#FF5252" />
+                android:id="@+id/toBinary"
+                style="@style/NormalRadioButton.ConvertTo"
+                android:text="@string/binary" />
 
             <RadioButton
-                android:id="@+id/octal_to_decimal"
-                style="@style/RadioButton"
-                android:text="@string/octal_to_decimal"
-                android:textColor="#FF5252" />
+                android:id="@+id/toOctal"
+                style="@style/NormalRadioButton.ConvertTo"
+                android:text="@string/octal" />
 
             <RadioButton
-                android:id="@+id/octal_to_hexa_decimal"
-                style="@style/RadioButton"
-                android:text="@string/octal_to_hexa_decimal"
-                android:textColor="#FF5252" />
+                android:id="@+id/toDecimal"
+                style="@style/NormalRadioButton.ConvertTo"
+                android:text="@string/decimal" />
+
+            <RadioButton
+                android:id="@+id/toHexaDecimal"
+                style="@style/NormalRadioButton.ConvertTo"
+                android:text="@string/hexa_decimal" />
 
         </RadioGroup>
 
-        <RadioGroup
-            android:id="@+id/radioGroupDecimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <RadioButton
-                android:id="@+id/decimal_to_binary"
-                style="@style/RadioButton"
-                android:text="@string/decimal_to_binary"
-                android:textColor="#FFAB40" />
-
-            <RadioButton
-                android:id="@+id/decimal_to_octal"
-                style="@style/RadioButton"
-                android:text="@string/decimal_to_octal"
-                android:textColor="#FFAB40" />
-
-            <RadioButton
-                android:id="@+id/decimal_to_hexa_decimal"
-                style="@style/RadioButton"
-                android:text="@string/decimal_to_hexa_decimal"
-                android:textColor="#FFAB40" />
-
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/radioGroupHexaDecimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <RadioButton
-                android:id="@+id/hexa_decimal_to_binary"
-                style="@style/RadioButton"
-                android:text="@string/hexa_decimal_to_binary"
-                android:textColor="#FFD740" />
-
-            <RadioButton
-                android:id="@+id/hexa_decimal_to_octal"
-                style="@style/RadioButton"
-                android:text="@string/hexa_decimal_to_octal"
-                android:textColor="#FFD740" />
-
-            <RadioButton
-                android:id="@+id/hexa_decimal_to_decimal"
-                style="@style/RadioButton"
-                android:text="@string/hexa_decimal_to_decimal"
-                android:textColor="#FFD740" />
-
-        </RadioGroup>
 
     </LinearLayout>
 

@@ -12,4 +12,7 @@
     <color name="background">#1F2326</color>
     <color name="app_bar_background">#272E36</color>
 
+    <color name="color_convert_from">#EEFF41</color>
+    <color name="color_convert_to">#69F0AE</color>
+
 </resources>
