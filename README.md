@@ -1,4 +1,6 @@
 # Calculator!
 
-<img src="https://user-images.githubusercontent.com/84254470/224489197-cadd7e08-bd2f-49a1-bbab-38c4ebe3efe9.png" vspace="5" align= "left" height="600" width="300">
-<img src="https://user-images.githubusercontent.com/84254470/224489199-d59203b3-067c-47d9-901e-5adb5c1d4530.png" vspace="5" align= "left" height="600" width="300">
+<img src="https://user-images.githubusercontent.com/84254470/224580462-ab0d4593-469a-4a93-81a4-954474a4d8cc.png" vspace="5" align= "left" height="500" width="250">
+<img src="https://user-images.githubusercontent.com/84254470/224580463-fca2ce42-9576-47b8-97ad-531fa87aca25.png" vspace="5" align= "left" height="500" width="250">
+<img src="https://user-images.githubusercontent.com/84254470/224580541-d635cf25-b5fb-433f-94d3-d10bab80a84c.png" vspace="5" align= "left" height="500" width="250">
+
