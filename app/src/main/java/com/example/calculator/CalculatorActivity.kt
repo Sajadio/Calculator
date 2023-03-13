@@ -9,76 +9,89 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
-import com.example.calculator.databinding.ActivityCalculatorBinding
 import java.lang.Integer.*
 
 class CalculatorActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCalculatorBinding
+    private lateinit var fromRadioGroup: RadioGroup
+    private lateinit var toRadioGroup: RadioGroup
+    private lateinit var copyResult: ImageButton
+    private lateinit var clearText: ImageButton
+    private lateinit var input: EditText
+    private lateinit var result: TextView
+
     private var inputValue: String = ""
     private var selectedChios = false
-    private var from = 0
+    private var fromBase = 0
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCalculatorBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_calculator)
 
+        initialView()
+        initialEditText()
+        setupCallback()
+    }
+    private fun initialView() {
+        fromRadioGroup = findViewById(R.id.fromRadioGroup)
+        toRadioGroup = findViewById(R.id.toRadioGroup)
+        copyResult = findViewById(R.id.copyResult)
+        input = findViewById(R.id.input)
+        result = findViewById(R.id.resultView)
+        clearText = findViewById(R.id.clear_text)
+    }
 
-        binding.apply {
-            initialEditText()
-            copyValue.setOnClickListener {
-                copyValue()
-            }
-            fromRadioGroup.setOnCheckedChangeListener { _, checkedId ->
-                val radioButton = findViewById<RadioButton>(checkedId)
-                onFromRadioButtonClicked(radioButton)
-            }
-            toRadioGroup.setOnCheckedChangeListener { _, checkedId ->
-                val radioButton = findViewById<RadioButton>(checkedId)
-                onToRadioButtonClicked(radioButton)
-            }
+    private fun setupCallback(){
+        copyResult.setOnClickListener {
+            copyValue()
+        }
+        fromRadioGroup.setOnCheckedChangeListener { _, checkedId ->
+            val radioButton = findViewById<RadioButton>(checkedId)
+            onFromRadioButtonClicked(radioButton)
+        }
+        toRadioGroup.setOnCheckedChangeListener { _, checkedId ->
+            val radioButton = findViewById<RadioButton>(checkedId)
+            onToRadioButtonClicked(radioButton)
         }
     }
 
     private fun initialEditText() {
-        binding.apply {
-            input.addTextChangedListener { editable ->
-                clearText.apply {
-                    isVisible = editable.toString().isNotEmpty()
-                    setOnClickListener {
-                        editable?.clear()
-                    }
+        input.addTextChangedListener { editable ->
+            clearText.apply {
+                isVisible = editable.toString().isNotEmpty()
+                setOnClickListener {
+                    editable?.clear()
                 }
-                inputValue = editable.toString()
             }
+            inputValue = editable.toString()
+            toRadioGroup.clearCheck()
         }
     }
 
     private fun onFromRadioButtonClicked(radioButton: RadioButton?) {
         selectedChios = true
         when (radioButton?.id) {
-            R.id.fromBinary -> from = BASE_BINARY
-            R.id.fromOctal -> from = BASE_OCTAL
-            R.id.fromDecimal -> from = BASE_DECIMAL
-            R.id.fromHexaDecimal -> from = BASE_HEXA_DECIMAL
+            R.id.fromBinary -> fromBase = BASE_BINARY
+            R.id.fromOctal -> fromBase = BASE_OCTAL
+            R.id.fromDecimal -> fromBase = BASE_DECIMAL
+            R.id.fromHexaDecimal -> fromBase = BASE_HEXA_DECIMAL
         }
     }
 
     private fun onToRadioButtonClicked(radioButton: RadioButton?) {
         when (radioButton?.id) {
-            R.id.toBinary -> isValidValue(inputValue, from, to = BASE_BINARY)
-            R.id.toOctal -> isValidValue(inputValue, from, to = BASE_OCTAL)
-            R.id.toDecimal -> isValidValue(inputValue, from, to = BASE_DECIMAL)
-            R.id.toHexaDecimal -> isValidValue(inputValue, from, to = BASE_HEXA_DECIMAL)
+            R.id.toBinary -> isValidValue(inputValue, fromBase, to = BASE_BINARY)
+            R.id.toOctal -> isValidValue(inputValue, fromBase, to = BASE_OCTAL)
+            R.id.toDecimal -> isValidValue(inputValue, fromBase, to = BASE_DECIMAL)
+            R.id.toHexaDecimal -> isValidValue(inputValue, fromBase, to = BASE_HEXA_DECIMAL)
         }
     }
 
 
     private fun convert(value: String, from: Int, to: Int) {
         try {
-            binding.resultView.text = value.toLong(from).toString(to).uppercase()
+           result.text = value.toLong(from).toString(to).uppercase()
         } catch (e: Exception) {
             makeToast(e.message.toString())
         }
@@ -97,7 +110,7 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun copyValue() {
-        val result = binding.resultView.text.toString()
+        val result = result.text.toString()
         if (result.isNotEmpty()) {
             val clipboardManager =
                 getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
